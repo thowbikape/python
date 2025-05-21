@@ -1,0 +1,25 @@
+class Solution(object):
+    def determine_rank(self, scores, mark):
+        rank = 1
+        for score in scores:
+            if score > mark:
+                rank +=1
+        return rank
+    def findRelativeRanks(self, score):
+        """
+        :type score: List[int]
+        :rtype: List[str]
+        """
+        ranks = []
+        for s in score:
+            rank = self.determine_rank(score, s)
+            if rank ==1:
+                rank ="Gold Medal"
+            elif rank == 3:
+                rank ="Bronze Medal"
+            elif rank == 2:
+                rank="Silver Medal"
+            ranks.append(str(rank))
+        return ranks
+                  
+        
