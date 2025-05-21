@@ -1,0 +1,18 @@
+class Solution(object):
+    def search(self, l, key):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        f=0
+        e=len(l)-1
+        while(f<=e):
+            mid=(e+f)
+            if(key>l[mid]):
+                f=mid+1
+            elif(key<l[mid]):
+                e=mid-1
+            else:
+                return mid
+        return -1
