@@ -1,0 +1,9 @@
+class Solution(object):
+    def smallestRangeI(self, A, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        A.sort()
+        return max(0, (A[-1] - k)- (A[0] + k))
