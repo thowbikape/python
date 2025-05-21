@@ -1,0 +1,13 @@
+class Solution(object):
+    def toLowerCase(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        val=''
+        for i in s:
+            if'A' <= i <='Z':
+                val +=chr(ord(i)+32)
+            else:
+                val +=i
+        return val
