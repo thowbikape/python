@@ -1,0 +1,26 @@
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        out=[]
+        def cal(i,s,curr):
+            if i>len(candidates)-1:
+                return 
+            elif s>candidates[i]:
+                curr.append(candidates[i])
+                cal(i,s-candidates[i],curr)
+                curr.pop()
+                cal(i+1,s,curr)
+            elif s==candidates[i]:
+                curr.append(candidates[i])
+                out.append(curr[::])
+                curr.pop()
+                cal(i+1,s,curr)
+            else:
+                cal(i+1,s,curr)
+        curr=[]
+        cal(0,target,curr)
+        return out
